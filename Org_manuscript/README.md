@@ -19,7 +19,7 @@ The following instructions should work on a Linux system, and have not been test
 
 2. Open a terminal and set this folder as the working directory. Then enter the following command into the shell:
 
-	emacs -q -l init_Santos2019.el manuscript_outliers_Santos_2019.org
+		emacs -q -l init_Santos2019.el manuscript_outliers_Santos_2019.org
 	
 3. Emacs should open, eventually install the missing Lisp packages, and finally execute a minimal init file. The org source file should show up.
 

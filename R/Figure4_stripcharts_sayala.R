@@ -12,7 +12,7 @@
   rownames(sayala) <- 1:nrow(sayala)
   # Compute Mahalanobis distances:
   maha <- mahalanobis(sayala, center = colMeans(sayala), cov = cov(sayala)) # classic
-  mcd <- covMcd(sayala, alpha = 0.75)$raw.mah # robust
+  mcd <- covMcd(sayala, alpha = 0.75)$mah # robust
   names(mcd) <- names(maha) <- rownames(sayala)
   ## Plot the classic and robust Mahalanobis distances:
   set.seed(12345) # arbitrary seed to ensure reproducbility

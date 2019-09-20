@@ -1,10 +1,10 @@
 (package-initialize)
 (add-to-list 'package-archives
-		 '("melpa-stable" . "http://stable.melpa.org/packages/"))
+	     '("melpa-stable" . "http://stable.melpa.org/packages/"))
 (add-to-list 'package-archives
-		 '("melpa" . "http://melpa.org/packages/"))
-(add-to-list 'package-archives 
-             '("org" . "https://orgmode.org/elpa/") t)
+	     '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives
+	     '("org" . "https://orgmode.org/elpa/") t)
 (setq package-archive-priorities '(("gnu" . 5)
                                    ("melpa" . 10)
                                    ("org" . 11)
@@ -16,12 +16,11 @@
                org-ref
                poly-org
                poly-R
-               ox-pandoc
-	           use-package))
+               ox-pandoc))
   (when (not (package-installed-p pkg))
     (package-install pkg)))
 
-(add-to-list 'load-path "~/.emacs.d/lisp/")
+(add-to-list 'load-path "./")
 
 (require 'org)
 (require 'org-ref)

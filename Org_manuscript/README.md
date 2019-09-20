@@ -1,7 +1,7 @@
 An Org source file to reproduce the whole manuscript
 ====================================================
 
-The files provided in this folder should allow to reproduce the whole manuscript, in its exact form at the moment of the submission to the *Journal of Archaeological Science: Reports*.
+In search for a perfect reproducibility, this manuscript have been entirely written in [Org mode for Emacs](https://orgmode.org/). The files provided in this folder should allow to rebuild the whole manuscript, in its exact form at the moment of the submission to the *Journal of Archaeological Science: Reports*. All R scripts will be re-evaluated during this process, and the R code chunks can also been evaluated manually in the Org source file.
 
 The following instructions should work on a Linux system, and have not been tested on other OS.
 

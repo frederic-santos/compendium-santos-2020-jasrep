@@ -7,7 +7,7 @@ An overview of some robust methods for univariate and multivariate outliers dete
 
 *Submitted to Journal of Archaeological Science: Reports*, 2019.
 
-**Supporting Information**
+# Supporting Information
 
 This repository contains the org source file of the original manuscript, thus making it a fully reproducible article with the latest versions of Emacs and Org-mode. Detailed instructions are available in the corresponding directory, `/Org_manuscript/`.
 
@@ -15,7 +15,7 @@ For non Emacs users, a set of separate R source files also allows the replicatio
 
 The encoding system is UTF-8 for all source files.
 
-**Prerequisites**
+## Minimal prerequisites
 
 Please note that several R packages are required. To install all of them:
 - Please make sure that you have a recent R version (R >= 3.6.0).

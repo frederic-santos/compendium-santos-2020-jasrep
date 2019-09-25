@@ -9,7 +9,7 @@ The following instructions should work on a Linux system, and have not been test
 
 1. Please make sure that R and all the required packages are installed. See [here](https://gitlab.com/f.santos/reproducibility-package-for-santos-2019-jasr/blob/master/README.md) for a complete list and detailed instructions.
 
-2. A complete distribution of LaTeX must be available on your computer.
+2. A complete distribution of LaTeX must be available on your computer. In particular, specific packages for scientific edition, generally grouped under the name `texlive-publishers` with most Linux distributions, will be necessary. The package `mbboard` used within the manuscript is not always part of LaTeX distributions but is available [here](https://www.ctan.org/pkg/mbboard). Since it is not essential to the manuscript (it only prettyfies some mathematical fonts), the corresponding line in the Org file can simply be removed if you do not want (or do not manage) to use it.
 
 3. The last version of [Emacs](https://www.gnu.org/software/emacs/) is required.
 

@@ -23,7 +23,7 @@ The following instructions should work on a Linux system, and have not been test
 	
 3. Emacs should open, eventually install the missing Lisp packages, and finally execute a minimal init file. The org source file should show up.
 
-4. Finally, execute the following keybind (with the Emacs window on the foreground): `C-c C-e l p` (i.e., `Ctrl-c Ctrl-e l p`).
+4. Finally, execute the following keybinding (with the Emacs window on the foreground): `C-c C-e l p` (i.e., `Ctrl-c Ctrl-e l p`). Then press enter to accept the default value of the R working directory.
 
 5. A pdf file should be created as a result in the working directory.
 

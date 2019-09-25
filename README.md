@@ -23,7 +23,7 @@ Please note that several R packages are required. To install all of them:
     
         install.packages(c("aplpack", "devtools", "FactoMineR", "mvoutlier", "quantreg", "robustbase", "solitude", "univOutl"), dep = TRUE)
     
-- Then install some other packages avilable on GitLab or GitHub by running the following R code:
+- Then install some other packages available on GitLab or GitHub by running the following R code:
 
         devtools::install_git('https://gitlab.com/f.santos/anthrostat.git')
         devtools::install_github("geanes/bioanth")

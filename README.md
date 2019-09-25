@@ -9,9 +9,9 @@ An overview of some robust methods for univariate and multivariate outliers dete
 
 **Supporting Information**
 
-This repository contains the org source file of the original manuscript, thus making it a fully reproducible article with the latest versions of Emacs and Org-mode. Detailed instructions are available in the corresponding directory, ~/Org_manuscript/~.
+This repository contains the org source file of the original manuscript, thus making it a fully reproducible article with the latest versions of Emacs and Org-mode. Detailed instructions are available in the corresponding directory, `/Org_manuscript/`.
 
-For non Emacs users, a set of separate R source files also allows the replication of all the results (Tables and Figures) presented in the article. All source files are independent (running all of them is not mandatory); and each Table or Figure is associated to an R source file. They can be found in the ~/R/~ directory.
+For non Emacs users, a set of separate R source files also allows the replication of all the results (Tables and Figures) presented in the article. All source files are independent (running all of them is not mandatory); and each Table or Figure is associated to an R source file. They can be found in the `/R/` directory.
 
 The encoding system is UTF-8 for all source files.
 

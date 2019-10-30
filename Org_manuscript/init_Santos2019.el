@@ -1,3 +1,8 @@
+;;; Commentary:
+;;; This init file is a companion to allow the full reproducibility
+;;; of the results from Santos 2019, Journal of Archaeological: Reports.
+
+;; Set repository information:
 (package-initialize)
 (add-to-list 'package-archives
 	     '("melpa-stable" . "http://stable.melpa.org/packages/"))
@@ -10,91 +15,104 @@
                                    ("org" . 11)
                                    ("melpa-stable" . 6)))
 
-(dolist (pkg '(auctex
-               company
-               ess
-               org-ref
-               poly-org
-               poly-R
-               ox-pandoc))
-  (when (not (package-installed-p pkg))
-    (package-install pkg)))
+;; Install and activate use-package (if not already the case):
+(unless (package-installed-p 'use-package)
+  (package-install use-package))
+(eval-when-compile
+  (require 'use-package))
 
-(add-to-list 'load-path "./")
-
-(require 'org)
-(require 'org-ref)
-(require 'org-tempo)
-(require 'ox-pandoc)
-(require 'ox-latex)
-(defun turn-on-visual-line-mode () (visual-line-mode 1))  
-(add-hook 'org-mode-hook 'turn-on-visual-line-mode)
-
-(require 'ess-site)
-
+;; General Emacs settings:
 (setq inhibit-splash-screen t)
-
 (global-display-line-numbers-mode)
-
-(load-library "paren")
-(setq show-paren-delay 0)
-(show-paren-mode 1)
-(require 'paren)
-
 (global-hl-line-mode t)
-
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
-
 (setq-default word-wrap t)
 (toggle-truncate-lines -1)
 (setq longlines-wrap-follows-window-size t)
 
-(remove-hook 'elpy-modules 'elpy-module-flymake) ;; remove Flymake globally
-(setq ess-use-flymake nil) ;; remove Flymake in ESS mode
+;; Use UTF-8 encoding:
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
 
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq-default TeX-master nil)
+;; Allow Emacs to execute lisp code in the current directory:
+(add-to-list 'load-path "./")
 
-(defun tex-pdf-on () (TeX-PDF-mode 1))
-(add-hook 'tex-mode-hook 'tex-pdf-on)
-(add-hook 'latex-mode-hook 'tex-pdf-on)
-(setq TeX-PDF-mode t)
+;; Charger et configurer ESS pour l'utilisation de R :
+(use-package ess
+  :ensure t
+  :init
+  (require 'ess-site)
+  :config
+  ;; Remove Flymake
+  (setq ess-use-flymake nil))
 
-(defun auto-fill-mode-on () (auto-fill-mode 1))
+(use-package org
+  :ensure t
+  :init
+  (defun turn-on-visual-line-mode () (visual-line-mode 1)) ;; fonction Lisp utile ci-dessous
+  :config
+  (require 'org-tempo)
+  ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; General Org-mode settings:
+  (setq org-src-fontify-natively t)
+  (setq org-src-tab-acts-natively t)
+  (setq org-pretty-entities t)      
+  (add-hook 'org-mode-hook 'turn-on-visual-line-mode)
+  ;; Enable support for "ignore" tag:
+  (require 'ox-extra)
+  (ox-extras-activate '(ignore-headlines))
+  ;; Settings for LaTeX export:
+  (setq org-latex-pdf-process (list "latexmk -bibtex -f -pdf %f"))
+  (setq org-latex-caption-above nil)
+  (setq org-export-with-smart-quotes t) ;; de jolis guillemets français par défaut (avec babel !)
+  ;; Add Elsevier class:
+  (add-to-list 'org-latex-classes
+	       '("elsarticle"
+		 "\\documentclass{elsarticle}"
+		 ("\\section{%s}" . "\\section*{%s}")
+		 ("\\subsection{%s}" . "\\subsection*{%s}")
+		 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
+  ;; ;;;;;;;;;;;;;;;
+  ;; Babel settings:
+  ;; Supported languages:
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '(
+     (latex . t)
+     (R . t)
+     ))
+  ;; Do not ask for conformation each time the document is exported:
+  (setq org-confirm-babel-evaluate nil)
+  ;; Preserve indentation:
+  (setq org-src-preserve-indentation t)
+  ;; Inline display of figures:
+  (add-hook 'org-babel-after-execute-hook 'org-display-inline-images) 
+  (add-hook 'org-mode-hook 'org-display-inline-images))
 
-(setq org-latex-pdf-process (list "latexmk -bibtex -f -pdf %f"))
+;; Use org-ref to handle bibliography:
+(use-package org-ref
+  :ensure t
+  :after org)
 
-(setq org-latex-caption-above nil)
+;; Also use paren package (for greater comfort in inspecting source code):
+(use-package paren
+  :ensure t
+  :config
+  (setq show-paren-delay 0)
+  (show-paren-mode 1))
 
-(setq org-hide-leading-stars nil)  ;; ne pas cacher les "*" supplémentaires des sous-sections
-(setq org-alphabetical-lists t)
-(setq org-src-fontify-natively t)  ;; activer la coloration syntaxique au sein des blocs
-(setq org-src-tab-acts-natively t) ;; activer la complétion au sein des blocs
-(setq org-pretty-entities t)       ;; permet d'avoir des caractères spéciaux (\alpha, ...)
-
-(require 'ox-extra)
-(ox-extras-activate '(ignore-headlines))
-
-
-(setq org-confirm-babel-evaluate nil)
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '(
-   (R . t)
-   (org . t)
-   ))
-   
-(setq org-src-preserve-indentation t)
-
-(add-hook 'org-babel-after-execute-hook 'org-display-inline-images) 
-(add-hook 'org-mode-hook 'org-display-inline-images)
-
-(add-to-list 'org-latex-classes
-             '("elsarticle"
-               "\\documentclass{elsarticle}"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
+;; LaTeX configuration:
+(use-package tex
+  :ensure auctex
+  :init
+  (defun tex-pdf-on () (TeX-PDF-mode 1))
+  (defun auto-fill-mode-on () (auto-fill-mode 1))
+  :config
+  ;; Réglages conseillés par le manuel de AucTeX :
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t)
+  (setq-default TeX-master nil)
+  ;; Activer par défaut le PDF avec LaTeX :
+  (add-hook 'tex-mode-hook 'tex-pdf-on)
+  (add-hook 'latex-mode-hook 'tex-pdf-on)
+  (setq TeX-PDF-mode t))

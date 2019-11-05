@@ -22,9 +22,9 @@ The encoding system is UTF-8 for all source files.
 2. Several R packages are required. To install all of them:
    - Install some CRAN packages by running the following R code:
     
-		install.packages(c("aplpack", "devtools", "FactoMineR", "mvoutlier", "quantreg", "robustbase", "solitude", "univOutl"), dep = TRUE)
+         install.packages(c("aplpack", "devtools", "FactoMineR", "mvoutlier", "quantreg", "robustbase", "solitude", "univOutl"), dep = TRUE)
     
-	- Then install some other packages available on GitLab or GitHub by running the following R code:
+   - Then install some other packages available on GitLab or GitHub by running the following R code:
 
-			devtools::install_git('https://gitlab.com/f.santos/anthrostat.git')
-			devtools::install_github("geanes/bioanth")
+         devtools::install_git('https://gitlab.com/f.santos/anthrostat.git')
+         devtools::install_github("geanes/bioanth")

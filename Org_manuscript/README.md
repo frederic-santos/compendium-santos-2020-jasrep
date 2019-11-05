@@ -13,11 +13,11 @@ The following instructions have been mainly tested on Linux, but should work for
    - **MS Windows users**: most Windows users prefer the [MiKTeX distribution](https://miktex.org/download). The better way is to download the *Net installer* to install a complete MiKTeX distribution, including all the packages available. If you install only a basic MiKTeX distribution, please make sure that the LaTeX package `latexmk` will be installed (this can be done downstream of the installation, through the MiKTeX package manager).
    - **Linux users**: most Linux users prefer the [texlive distribution](https://tug.org/texlive/). If your Linux distribution proposes a complete texlive distribution, it is safe to do so. For example, openSuSE users can run the following shell instruction:
 	   
-            sudo zypper install texlive-scheme-full
+         sudo zypper install texlive-scheme-full
 	   
       The users willing to install only a subset of LaTeX packages should at least select the packages for scientific edition, generally grouped under the names `texlive-publishers` and `texlive-science` with most Linux distributions. For example, Manjaro users can run the following shell instruction:
 
-            sudo pacman -S texlive-publishers texlive-science
+         sudo pacman -S texlive-publishers texlive-science
 
 3. Perl must be installed on your computer. This programming language should be natively installed on Linux and Mac OS computers. For MS Windows users, I recommend to install [Strawberry Perl](http://strawberryperl.com/).
 
@@ -31,13 +31,13 @@ The following instructions have been mainly tested on Linux, but should work for
 
 2. Open a terminal and set this folder as the working directory. Then enter the following command into the shell:
 
-		emacs -q -l init_Santos2019.el manuscript_outliers_Santos_2019.org
+         emacs -q -l init_Santos2019.el manuscript_outliers_Santos_2019.org
 	
 3. Emacs should open, eventually install the missing Lisp packages, and finally execute a minimal init file. The org source file should show up.
 
-4. Finally, execute the following keybinding (with the Emacs window on the foreground): `C-c C-e l p` (i.e., `Ctrl-c Ctrl-e l p`). Then press enter to accept the default value of the R working directory.
+4. Finally, execute the following keybinding (with the Emacs window on the foreground): `C-c C-e l o` (i.e., `Ctrl-c Ctrl-e l o`). Then press enter to accept the default value of the R working directory.
 
-5. A pdf file should be created as a result in the working directory.
+5. The final pdf file should be displayed, and created in the working directory.
 
 ## Disclaimer
 

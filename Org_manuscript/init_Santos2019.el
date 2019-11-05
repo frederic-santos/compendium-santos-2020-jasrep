@@ -38,7 +38,7 @@
 ;; Allow Emacs to execute lisp code in the current directory:
 (add-to-list 'load-path "./")
 
-;; Charger et configurer ESS pour l'utilisation de R :
+;; Load Emacs Speaks Statistics:
 (use-package ess
   :ensure t
   :init
@@ -50,7 +50,7 @@
 (use-package org
   :ensure t
   :init
-  (defun turn-on-visual-line-mode () (visual-line-mode 1)) ;; fonction Lisp utile ci-dessous
+  (defun turn-on-visual-line-mode () (visual-line-mode 1)) ;; Lisp function used below
   :config
   ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; General Org-mode settings:
@@ -64,7 +64,7 @@
   ;; Settings for LaTeX export:
   (setq org-latex-pdf-process (list "latexmk -bibtex -f -pdf %f"))
   (setq org-latex-caption-above nil)
-  (setq org-export-with-smart-quotes t) ;; de jolis guillemets français par défaut (avec babel !)
+  (setq org-export-with-smart-quotes t) ;; for smart quotes in LaTeX export (with babel packages)
   ;; Add Elsevier class:
   (add-to-list 'org-latex-classes
 	       '("elsarticle"
@@ -108,11 +108,11 @@
   (defun tex-pdf-on () (TeX-PDF-mode 1))
   (defun auto-fill-mode-on () (auto-fill-mode 1))
   :config
-  ;; Réglages conseillés par le manuel de AucTeX :
+  ;; Some settings recommended by AucTeX online manual:
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
   (setq-default TeX-master nil)
-  ;; Activer par défaut le PDF avec LaTeX :
+  ;; Turn on PDF mode by default:
   (add-hook 'tex-mode-hook 'tex-pdf-on)
   (add-hook 'latex-mode-hook 'tex-pdf-on)
   (setq TeX-PDF-mode t))

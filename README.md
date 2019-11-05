@@ -17,13 +17,14 @@ The encoding system is UTF-8 for all source files.
 
 ## Minimal prerequisites
 
-Please note that several R packages are required. To install all of them:
-- Please make sure that you have a recent R version (R >= 3.6.0).
-- Install some CRAN packages by running the following R code:
-    
-        install.packages(c("aplpack", "devtools", "FactoMineR", "mvoutlier", "quantreg", "robustbase", "solitude", "univOutl"), dep = TRUE)
-    
-- Then install some other packages available on GitLab or GitHub by running the following R code:
+1. Please make sure that you have a recent R version (R >= 3.6.0). Windows users should also have [Rtools](https://cran.r-project.org/bin/windows/Rtools/) installed, and their *PATH* environment variable set accordingly.
 
-        devtools::install_git('https://gitlab.com/f.santos/anthrostat.git')
-        devtools::install_github("geanes/bioanth")
+2. Several R packages are required. To install all of them:
+   - Install some CRAN packages by running the following R code:
+    
+		install.packages(c("aplpack", "devtools", "FactoMineR", "mvoutlier", "quantreg", "robustbase", "solitude", "univOutl"), dep = TRUE)
+    
+	- Then install some other packages available on GitLab or GitHub by running the following R code:
+
+			devtools::install_git('https://gitlab.com/f.santos/anthrostat.git')
+			devtools::install_github("geanes/bioanth")

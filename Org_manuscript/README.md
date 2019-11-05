@@ -27,7 +27,7 @@ The following instructions have been mainly tested on Linux, but should work for
 
 ## Steps to follow
 
-1. Unzip the whole folder in your computer.
+1. Download and unzip the whole directory `Org_manuscript`.
 
 2. Open a terminal and set this folder as the working directory. Then enter the following command into the shell:
 

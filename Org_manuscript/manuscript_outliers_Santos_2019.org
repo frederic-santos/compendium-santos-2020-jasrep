@@ -3,7 +3,6 @@
 #+OPTIONS: toc:nil author:nil
 #+STARTUP: overview
 #+LATEX_HEADER: \usepackage[english]{babel}
-#+LATEX_HEADER: \usepackage{mbboard}
 #+LATEX_HEADER: \usepackage[matha,mathb]{mathabx}
 #+LATEX_HEADER: \usepackage{amsmath}
 #+LATEX_HEADER: \usepackage{lineno}

@@ -33,7 +33,7 @@ The following instructions have been mainly tested on Linux, but should work for
 
          emacs -q -l init_Santos2019.el manuscript_outliers_Santos_2019.org
 	
-3. Emacs should open, eventually install the missing Lisp packages, and finally execute a minimal init file. The org source file should show up.
+3. Emacs should open, install the missing Lisp packages if needed, and finally execute a minimal init file. The org source file should show up.
 
 4. Finally, execute the following keybinding (with the Emacs window on the foreground): `C-c C-e l o` (i.e., `Ctrl-c Ctrl-e l o`). Then press enter to accept the default value of the R working directory.
 

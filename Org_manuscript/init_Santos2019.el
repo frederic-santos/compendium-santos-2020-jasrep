@@ -14,10 +14,11 @@
                                    ("melpa" . 10)
                                    ("org" . 11)
                                    ("melpa-stable" . 6)))
+(package-refresh-contents)
 
 ;; Install and activate use-package (if not already the case):
 (unless (package-installed-p 'use-package)
-  (package-install use-package))
+  (package-install 'use-package))
 (eval-when-compile
   (require 'use-package))
 
@@ -51,7 +52,6 @@
   :init
   (defun turn-on-visual-line-mode () (visual-line-mode 1)) ;; fonction Lisp utile ci-dessous
   :config
-  (require 'org-tempo)
   ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; General Org-mode settings:
   (setq org-src-fontify-natively t)

@@ -71,7 +71,7 @@ In biological anthropology, methods of outlier detection based on the mean and s
 
 However, this method suffers from a critical lack of robustness in other situations, recently illustrated on real data from various disciplinary fields by cite:leys2013_DetectingOutliersNot and cite:lightfoot2016_UseBiomineralOxygen. The data sets handled in past sciences do not always meet the previous requirements, oftenest because of their small sample size. When considering archaeological data, the sample mean and---above all---standard deviation may be drastically distorded by the presence of the extreme outliers themselves, and thus do not provide a good measure of distance to detect outliers.
 
-#+begin_src R :results file graphics :file failure2sd.png :exports results :width 600 :height 400 :tangle Repo_GitLab/R/Figure1_densityplot.R :session *R*
+#+begin_src R :results file graphics :file figures/failure2sd.png :exports results :width 600 :height 400 :tangle Repo_GitLab/R/Figure1_densityplot.R :session *R*
   ## Load the required packages:
   library(anthrostat)
   library(bioanth)
@@ -207,7 +207,7 @@ using previous notations, and a value of $k$ still usually equal to 1.5.
 *** Application to the Goldman Data Set
 An example of visually slightly skewed distribution can be given by considering the asymmetry in tibia mediolateral diameter within the population sample of Giza (Egypt, 4700--4200 BP, shortcode in the Goldman Data Set: "Pyramiden, Gizeh"). A kernel density estimation of those values is presented in Figure [[fig:asymGiza]].
 
-#+begin_src R :results file graphics :file skewness.png :exports results :width 600 :height 400 :tangle Repo_GitLab/R/Figure2_Giza.R
+#+begin_src R :results file graphics :file figures/skewness.png :exports results :width 600 :height 400 :tangle Repo_GitLab/R/Figure2_Giza.R
   ## Load required packages:
   library(bioanth)
   library(univOutl)
@@ -282,7 +282,7 @@ This procedure is also known as the MCD (minimum covariance determinant) algorit
 
 An implementation of robust Mahalanobis distance is available in the R package ~robustbase~ citep:todorov2009_ObjectOrientedFrameworkRobust. This package will be used to illustrate the differences between the classical and robust versions of the Mahalanobis distance. Figure [[fig:plot3d_Sayala]] represents a three-dimensional scatterplot for the Sayala population sample, retrieved from the Goldman Data Set. The maximal lengths of three long bones, the left femur, humerus and tibia, are considered. Visually, three outliers---the individuals 7, 14 and 20---can be identified.
 
-#+begin_src R :results file graphics :file plot3D-sayala.png :exports results :width 500 :height 450 :tangle Repo_GitLab/R/Figure3_plot3D_Sayala.R
+#+begin_src R :results file graphics :file figures/plot3D-sayala.png :exports results :width 500 :height 450 :tangle Repo_GitLab/R/Figure3_plot3D_Sayala.R
   ## Load required packages:
   library(bioanth)
   library(scatterplot3d)
@@ -311,7 +311,7 @@ An implementation of robust Mahalanobis distance is available in the R package ~
 
 The presence of those outliers causes an inflation of the generalized variance, i.e. the determinant of the classical covariance matrix, $|\Sigma|$. Consequently, the classical and robust Mahalanobis distances provide different sets of outliers here (Fig. [[fig:stripcharts-maha]]). For an $\alpha$ level of 0.01, the classical version detects no outlier at all, whereas the robust version identifies the two individuals 14 and 20. For an $\alpha$ level of 0.05, the robust version also detects the individual 7, which is still far from the exclusion boundary for the classical version.
 
-#+begin_src R :results file graphics :file maha-dd.png :exports results :width 400 :height 400 :tangle Repo_GitLab/R/Figure4_stripcharts_sayala.R
+#+begin_src R :results file graphics :file figures/maha-dd.png :exports results :width 400 :height 400 :tangle Repo_GitLab/R/Figure4_stripcharts_sayala.R
   ## Load required packages:
   library(bioanth)
   library(robustbase)
@@ -364,7 +364,7 @@ According to cite:liu2012_IsolationBasedAnomalyDetection, a quick rule-of-thumb 
 
 An isolation forest with 100 isolation trees is built on the same data as in the previous section (Sayala population sample with three variables: LTML, LHML, LFML). The anomaly scores, sorted by decreasing order, can be found in Figure [[fig:anomaly_scores]]. The isolation forest algorithm provides a moderate evidence to consider the individuals 20, 7 and 14 as outliers, since their anomaly scores are the only ones to exhibit a substantial departure from the reference value of 0.50. This conclusion is consistent with the results obtained via the robust Mahalanobis distance (cf. Fig. [[fig:stripcharts-maha]]). Isolation forests can thus provide a useful indication about possible multivariate outliers, by studying both the global distribution of anomaly scores (in search for "elbows" or gaps) and their absolute distance to 0.50.
 
-#+begin_src R :results file graphics :file anomaly_plot.png :exports results :width 650 :height 400 :tangle Repo_GitLab/R/Figure5_anomaly_scores.R
+#+begin_src R :results file graphics :file figures/anomaly_plot.png :exports results :width 650 :height 400 :tangle Repo_GitLab/R/Figure5_anomaly_scores.R
   ## Load required packages:
   library(bioanth)
   library(FactoMineR)
@@ -414,7 +414,7 @@ Although the general methods for multivariate outliers detailed in section [[Mul
 ** Outliers in the context of correlation and linear regression
 When considering the relationship between two continuous variables, three main types of outliers can be defined. In the first panel of Figure [[fig:type_outliers_reg]], one single individual is far from the regression line, but its position---near the average of the explanatory variable RHML---gives it only a limited influence in the regression model. In the middle panel, two extreme individuals can be identified on the margins of the horizontal axis. However, those two individuals perfectly respect the relationship observed on the other individuals, and the regression lines with or withour those two extreme points are indistinguishable. Finally, the right panel shows a /leverage/ individual, i.e. an individual which is both located on the margin of the explanatory variable and has a high residual value: this type of individual has a great influence in a regression model, especially when dealing with small sample sizes.
 
-#+begin_src R :results file graphics :file type_outliers_reg.png :exports results :width 900 :height 300 :tangle Repo_GitLab/R/Figure6_type_outliers.R
+#+begin_src R :results file graphics :file figures/type_outliers_reg.png :exports results :width 900 :height 300 :tangle Repo_GitLab/R/Figure6_type_outliers.R
   ## Load the required package:
   library(bioanth)
   ## Load the Goldman Data Set:
@@ -460,7 +460,7 @@ However, it should be noted that robust methods for correlation and regression d
 
 A robust version of the correlation coefficient automatically restricts the computation to the "most central" part of the data, using the same MCD algorithm as the robust Mahalanobis distance detailed in section [[Robust Mahalanobis distance]] (Fig. [[fig:robust-corr]]). In particular, potential outliers can be lefted in on the plots, thus allowing to discuss some particular cases without introducing any bias in the computation.
 
-#+begin_src R :results file graphics :file robust-correlation.png :exports results :width 400 :height 400 :tangle Repo_GitLab/R/Figure7_robust_corr.R
+#+begin_src R :results file graphics :file figures/robust-correlation.png :exports results :width 400 :height 400 :tangle Repo_GitLab/R/Figure7_robust_corr.R
   ## Load required packages:
   library(bioanth)
   library(mvoutlier)
@@ -482,7 +482,7 @@ A robust version of the correlation coefficient automatically restricts the comp
 
 Robust alternatives for linear regression are also implemented in R. The function ~rlm()~ implements an algorithm that gives different weights to the individuals according to their distance to the regression line, and iteratively re-fits the model until convergence citep:venables2010_ModernAppliedStatistics. Another option is the quantile regression citep:koenker2005_QuantileRegressionRoger, that replaces the mean by the median wihtin the framework of least squares estimation. As shown on Figure [[fig:robust-regression]], those two methods are usually consistent with each other, and with an ordinary linear regression performed after excluding the potential outliers.
 
-#+begin_src R :results file graphics :file quantile-regression.png :exports results :width 450 :height 450 :tangle Repo_GitLab/R/Figure8_robust_lm.R
+#+begin_src R :results file graphics :file figures/quantile-regression.png :exports results :width 450 :height 450 :tangle Repo_GitLab/R/Figure8_robust_lm.R
   ## Load required packages:
   library(bioanth)
   library(MASS)
@@ -522,7 +522,7 @@ Depending on the aim and context of the study, the two extreme points on the mid
 
 When one only searches for bivariate outliers outside of the context of linear regression or correlation, the bagplot citep:rousseeuw1999_BagplotBivariateBoxplot is the appropriate tool. The bagplot is a bivariate generalization of the boxplot. An inner polygon (/bag/) contains about 50% of the individuals which are the closest to the bivariate sample median; an exterior /fence/ allows to identify the outliers and is defined by inflating the bag by a factor 3; and an intermediate region (the /loop/) is the convex hull of the outermost individuals that are not outliers. Rarely used in archaeological sciences---cite:oconnell2012_DietbodyOffsetHuman and cite:emery2018_MappingOriginsImperial are two of the few recent instances---, the bagplot provides a simple and visual way to identify bivariate outliers by an /ad-hoc/ rule (Fig. [[fig:bagplot]]).
 
-#+begin_src R :results file graphics :file bagplot.png :exports results :width 500 :height 400 :tangle Repo_GitLab/R/Figure9_bagplot.R
+#+begin_src R :results file graphics :file figures/bagplot.png :exports results :width 500 :height 400 :tangle Repo_GitLab/R/Figure9_bagplot.R
   ## Load required packages:
   library(aplpack)
   library(bioanth)

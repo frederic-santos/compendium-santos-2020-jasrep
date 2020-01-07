@@ -44,9 +44,23 @@
   :init
   (require 'ess-site)
   :config
-  ;; Remove Flymake
-  (setq ess-use-flymake nil))
+  ;; Remove Flymake:
+  (setq ess-use-flymake nil)
+  ;; Syntax highlighting:
+  (setq ess-R-font-lock-keywords '((ess-R-fl-keyword:keywords . t)
+				   (ess-R-fl-keyword:constants . t)
+				   (ess-R-fl-keyword:modifiers . t)
+				   (ess-R-fl-keyword:fun-defs . t)
+				   (ess-R-fl-keyword:assign-ops . t)
+				   (ess-R-fl-keyword:%op% . t)
+				   (ess-fl-keyword:fun-calls . t)
+				   (ess-fl-keyword:numbers . t)
+				   (ess-fl-keyword:operators)
+				   (ess-fl-keyword:delimiters)
+				   (ess-fl-keyword:=)
+				   (ess-R-fl-keyword:F&T . t))))
 
+;; Org-mode settings:
 (use-package org
   :ensure t
   :init
@@ -100,6 +114,12 @@
   :config
   (setq show-paren-delay 0)
   (show-paren-mode 1))
+  
+;; Use polymode:
+(use-package poly-org
+  :ensure t)
+(use-package poly-R
+  :ensure t)
 
 ;; LaTeX configuration:
 (use-package tex
@@ -116,3 +136,12 @@
   (add-hook 'tex-mode-hook 'tex-pdf-on)
   (add-hook 'latex-mode-hook 'tex-pdf-on)
   (setq TeX-PDF-mode t))
+  
+;; Use 'solarized' theme:
+(use-package solarized-theme
+  :ensure t
+  :config
+  (setq solarized-distinct-fringe-background t)
+  (setq solarized-use-variable-pitch nil)
+  (setq solarized-scale-org-headlines nil)
+  (load-theme 'solarized-light t))

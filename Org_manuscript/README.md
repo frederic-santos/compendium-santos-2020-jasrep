@@ -1,7 +1,7 @@
 An Org source file to reproduce the whole manuscript
 ====================================================
 
-In search for a perfect reproducibility, this manuscript have been entirely written in [Org mode for Emacs](https://orgmode.org/). A Docker image is also available on DockerHub to provide the full computational environment that allowed this study. Using this Docker image, you should be able to rebuild the whole manuscript in its exact form at the moment of the submission to the *Journal of Archaeological Science: Reports*. All R scripts will be re-evaluated during this process, and the R code chunks can also been evaluated manually in the Org source file.
+In search for a perfect reproducibility, this manuscript have been entirely written in [Org mode for Emacs](https://orgmode.org/). A [Docker image](https://hub.docker.com/repository/docker/fredsantos/compendium_santos2020_jasrep) is also available on DockerHub to provide the full computational environment that allowed this study, and a [Dockerfile](./Dockerfile) is also provided in this repository. Using this Docker image, you should be able to rebuild the whole manuscript in its exact form at the moment of the submission to the *Journal of Archaeological Science: Reports*. All R scripts will be re-evaluated during this process, and the R code chunks can also been evaluated manually in the Org source file.
 
 The following instructions have been tested for Linux and Windows. Advanced Mac OS users should also be able to adapt them to their operating system.
 

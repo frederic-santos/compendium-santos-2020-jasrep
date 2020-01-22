@@ -35,8 +35,9 @@
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-;; Allow Emacs to execute lisp code in the current directory:
+;; Allow Emacs to execute lisp code in given directories:
 (add-to-list 'load-path "./")
+(add-to-list 'load-path "/root/.emacs.d/lisp/")
 
 ;; Load Emacs Speaks Statistics:
 (use-package ess

@@ -1,0 +1,5 @@
+#+TITLE: First version of the manuscript
+
+You can find in this directory the first version of the manuscript, before any process of peer-review.
+
+Readers can compare it to the final version, and then appreciate the amendments that could be done thanks to the reviewers.

@@ -11,15 +11,15 @@ For non-Emacs users, or simply for a lighter re-use of the R source code produce
 
    - Install some CRAN packages by running the following R code:
    ```r
-   install.packages(c("aplpack", "devtools", "FactoMineR", "mvoutlier", 
-                      "quantreg", "robustbase", "solitude", "univOutl"),
-                    dep = TRUE)
+   install.packages(c('aplpack', 'cellWise', 'FactoMineR', 'MASS', 'mvoutlier',
+                      'quantreg', 'remotes', 'robustbase', 'scatterplot3d', 'solitude',
+                      'univOutl'), dep = TRUE)"
    ```
 
    - Then install some other packages available on GitLab or GitHub by running the following R code:
    ```r
-   devtools::install_git('https://gitlab.com/f.santos/anthrostat.git')
-   devtools::install_github("geanes/bioanth")
+   remotes::install_github('geanes/bioanth', ref = 'b179b396')
+   remotes::install_git('https://gitlab.com/f.santos/anthrostat.git', ref = 'v0.1.4')
    ```
 
 ## Note

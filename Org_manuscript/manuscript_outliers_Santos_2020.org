@@ -811,4 +811,4 @@ This exact computational environment is made publicly available through a Docker
 Full details are available on the GitLab repository  (https://gitlab.com/f.santos/reproducibility-package-for-santos-2020-jasr).
 
 * References                                                         :ignore:
-bibliography:~/PACEA_MyCore/complete_biblio.bib
+bibliography:complete_biblio.bib

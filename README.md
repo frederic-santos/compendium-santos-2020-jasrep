@@ -14,3 +14,5 @@ This repository contains the org source file of the original manuscript, thus ma
 For non Emacs users, a set of separate R source files also allows the replication of all the results presented in the article, and may be a starting point to build your own R scripts for outliers detection. All source files are independent (running all of them is not mandatory); and each Table or Figure is associated to an R source file. They can be found in the `/R/` directory.
 
 The encoding system is UTF-8 for all source files.
+
+Finally, the first draft of the manuscript (before any process of peer-review) can be accessed in its pdf version in the `/Preprint/` directory.

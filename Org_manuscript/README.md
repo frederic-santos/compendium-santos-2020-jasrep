@@ -5,6 +5,9 @@ In search for a perfect reproducibility, this manuscript have been entirely writ
 
 The following instructions have been tested for Linux and Windows. Advanced Mac OS users should also be able to adapt them to their operating system.
 
+Since Windows instructions are more difficult to follow, a video tutorial is available on Vimeo:
+[![Video tutorial](.gitlab/tuto_vignette.png)](https://player.vimeo.com/video/386465412 "Video tutorial")
+
 ## 1. Install prerequisites
 ### 1.1. Linux users
 Simply install Docker on your computer. For example, Linux Manjaro users can execute the following command lines into the shell to install and activate it:
@@ -34,6 +37,8 @@ docker run -it --rm -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix fredsantos/compe
 Emacs should open! Go to section 2.1.3. for more instructions.
 
 #### 2.1.2. Windows users
+Prerequisite: make sure that Docker is running (run Docker Desktop or click on its desktop icon).
+
 1. Run Xlaunch from the start menu. Three configuration windows will pop up one after the other. In the first configuration window that shows up, check "Multiple windows", and click next. In the second window, chose the option "Start no client" and click next. In the last window, check all checkboxes (**including the checkbox "Disable access control" which is unchecked by default**). Your configuration is finished.
 2. Find out your local ip address by running the following command into a Windows Powershell:
 ```shell

@@ -39,7 +39,7 @@ Emacs should open! Go to section 2.1.3. for more instructions.
 #### 2.1.2. Windows users
 Prerequisite: make sure that Docker is running (run Docker Desktop or click on its desktop icon).
 
-1. Run Xlaunch from the start menu. Three configuration windows will pop up one after the other. In the first configuration window that shows up, check "Multiple windows", and click next. In the second window, chose the option "Start no client" and click next. In the last window, check all checkboxes (**including the checkbox "Disable access control" which is unchecked by default**). Your configuration is finished.
+1. Run XLaunch from the start menu. Three configuration windows will pop up one after the other. In the first configuration window that shows up, check "Multiple windows", and click next. In the second window, chose the option "Start no client" and click next. In the last window, check all checkboxes (**including the checkbox "Disable access control" which is unchecked by default**). Your configuration is finished.
 2. Find out your local ip address by running the following command into a Windows Powershell:
 ```shell
 ipconfig

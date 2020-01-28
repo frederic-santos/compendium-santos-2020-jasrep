@@ -22,6 +22,7 @@ Similar (or even identical) instructions apply for other Linux distributions. Fo
 ### 1.2. Windows users
 1. Install [Docker](https://www.docker.com/products/docker-desktop) on your computer from its official website.
 2. To improve the way Emacs can be displayed on Windows 10, install [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxsrv/).
+3. Make sure that Windows Powershell is installed and enabled on your computer. (It is natively installed on all Windows 10 machines: here is [a blog post that explains how to launch a Powershell console](https://winaero.com/blog/all-ways-to-open-powershell-in-windows-10/).)
 
 ## 2. Ways to reproduce the manuscript
 The full text of the manuscript, along with the embedded R code which produced each figure and table, can be consulted by opening the file [manuscript_outliers_Santos_2020.org](./manuscript_outliers_Santos_2020.org) directly through the GitLab interface online. 

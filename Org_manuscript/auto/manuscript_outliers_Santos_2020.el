@@ -5,13 +5,13 @@
                      '(("elsarticle" "review" "3p")))
    (TeX-add-to-alist 'LaTeX-provided-package-options
                      '(("inputenc" "utf8") ("fontenc" "T1") ("ulem" "normalem") ("babel" "english") ("mathabx" "matha" "mathb")))
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "href")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
    (TeX-run-style-hooks
     "latex2e"
@@ -37,51 +37,51 @@
    (TeX-add-symbols
     "med")
    (LaTeX-add-labels
-    "sec:org5128f13"
-    "sec:org1eecc91"
-    "sec:orgaa63cdf"
+    "sec:org19b1008"
+    "sec:orgf605f17"
+    "sec:orga725c30"
     "fig:failure2sd"
-    "sec:orgd633084"
+    "sec:orgbd550e3"
     "eq:formula_loc_scale_univ"
     "tab:comparison_loc_scale_methods"
-    "sec:org191010e"
-    "sec:org8667a39"
+    "sec:org5775752"
+    "sec:org4c5fda6"
     "eq:boxplot"
-    "sec:org69491f5"
+    "sec:org476a2b9"
     "eq:adjusted_boxplot"
-    "sec:orgc040711"
+    "sec:org5c38971"
     "fig:asymGiza"
-    "sec:orgdf0bda9"
-    "sec:org365583e"
+    "sec:org1da706c"
+    "sec:org36c8938"
     "eq:maha"
     "fig:plot3d_Sayala"
     "fig:stripcharts-maha"
-    "sec:orgd9683bc"
+    "sec:orgea3084d"
     "fig:anomaly_scores_sayala"
-    "sec:org65e73f0"
+    "sec:orgab5d332"
     "fig:anomaly_scores_dsp2"
     "fig:ddc_dsp2"
-    "sec:org639d3e2"
-    "sec:orgff697b6"
+    "sec:org14d3bab"
+    "sec:orga3455a6"
     "fig:type_outliers_reg"
     "fig:robust-corr"
     "fig:robust-regression"
-    "sec:org7fd82c4"
+    "sec:orgfeb2fd3"
     "fig:bagplot"
-    "sec:org38e9e47"
-    "sec:org3f0e7ec"
-    "sec:org0f77954"
-    "sec:org8e46ced"
+    "sec:org4126c1f"
+    "sec:orgc139342"
+    "sec:orge1d2aea"
+    "sec:org1ad4100"
     "appendix:rob-scale-estimate"
-    "sec:org95dffd7"
-    "sec:orgf1c1fdd"
+    "sec:org70036d2"
+    "sec:org071c3d4"
     "eq:mad"
-    "sec:org1988680"
+    "sec:org319adf2"
     "eq:sn"
-    "sec:org40d45f0"
+    "sec:orgbeb3093"
     "appendix:robust-maha"
     "eq:robust_maha"
-    "sec:org0eb5586"
+    "sec:org8c978ab"
     "appendix:r-packages")
    (LaTeX-add-bibliographies
     "complete_biblio"))

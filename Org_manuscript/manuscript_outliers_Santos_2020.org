@@ -101,7 +101,7 @@ id_outl <- norm_outliers(asym, coef = 2)
 plot(id_outl, method = "mean_std", number_id = 2)
 #+end_src
 
-#+CAPTION: Kernel density estimation of the vector $x$ of left-right differences (in millimeters) in humeral length observed on the 14 male individuals from the population sample Ipituaq (US-AK, 1500--1100 BP) in the Goldman Data Set. The blue dotted vertical lines represent the exclusion thresholds defined by the classical rule based on the sample mean and standard deviation, equal to $\bar{x} \pm 2 \times \hat{\sigma}_x$. The third and eight individuals are visual outliers. label:fig:failure2sd
+#+CAPTION: Kernel density estimation of the vector $x$ of left-right differences (in millimeters) in humeral length observed on the 14 male individuals from the population sample Ipituaq (US-AK, 1500--1100 BP) in the Goldman Data Set. The blue dotted vertical lines represent the exclusion thresholds defined by the classical rule based on the sample mean and standard deviation, equal to $\bar{x} \pm 2 \times \hat{\sigma}_x$. The third and eighth individuals are visual outliers. label:fig:failure2sd
 #+ATTR_LATEX: :width 0.6\textwidth
 #+RESULTS:
 [[file:figures/failure2sd.png]]

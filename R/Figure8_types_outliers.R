@@ -3,14 +3,14 @@
 #############################
 library(bioanth)
 
-#############################
-### Load the Goldman Data Set
-#############################
+#################################
+### Load the Goldman Data Set ###
+#################################
 data(goldman, package = "bioanth")
 
-###########################################
-### Define an helper function for the plots
-###########################################
+###############################################
+### Define an helper function for the plots ###
+###############################################
 plot_out_GDS <- function(data, pop, x_var = "RHML", y_var = "RTML",
                          title = NULL, index_outl = NULL) {
     ## Select a sub-sample from 'data':
@@ -27,9 +27,9 @@ plot_out_GDS <- function(data, pop, x_var = "RHML", y_var = "RTML",
            lty = 3, col = "blue")
 }
 
-########
-### Plot
-########
+############
+### Plot ###
+############
 ## Set graphial parameters:
 par(mfrow = c(1, 3), cex = 0.9)
 ## Type 1: extreme residual value near the average of X

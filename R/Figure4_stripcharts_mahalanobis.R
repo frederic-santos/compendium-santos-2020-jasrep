@@ -1,12 +1,12 @@
-##########################
-### Load required packages
-##########################
+##############################
+### Load required packages ###
+##############################
 library(bioanth)
 library(robustbase)
 
-#############################
-### Load the Goldman Data Set
-#############################
+#################################
+### Load the Goldman Data Set ###
+#################################
 data(goldman, package = "bioanth")
 goldman <- as.data.frame(goldman) # tibble to data.frame
 ## Select the population sample "Sayala" :
@@ -16,9 +16,9 @@ sayala <- na.omit(sayala[ , c("LFML", "LTML", "LHML")])
 ## Relabel the individuals (more convenient in graphical representation):
 rownames(sayala) <- 1:nrow(sayala)
 
-#################################
-### Compute Mahalanobis distances
-#################################
+#####################################
+### Compute Mahalanobis distances ###
+#####################################
 ## Classic distance:
 maha <- mahalanobis(sayala, center = colMeans(sayala),
                     cov = cov(sayala))
@@ -28,9 +28,9 @@ mcd <- covMcd(sayala, alpha = 0.75,
 ## Add individual IDs:
 names(mcd) <- names(maha) <- rownames(sayala)
 
-#####################################################
-### Plot the classic and robust Mahalanobis distances
-#####################################################
+#########################################################
+### Plot the classic and robust Mahalanobis distances ###
+#########################################################
 set.seed(12345) # arbitrary seed to ensure reproducbility
 par(cex = 1.15, mar = c(2.5, 4, 1, 1))
 stripchart(x = list(maha, mcd), method = "jitter",

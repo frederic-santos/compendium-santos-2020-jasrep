@@ -1,12 +1,12 @@
-##########################
-### Load required packages
-##########################
+##############################
+### Load required packages ###
+##############################
 library(anthrostat)
 library(solitude)
 
-##################
-### Import dataset
-##################
+######################
+### Import dataset ###
+######################
 ## Load DSP2 data:
 data(data_dsp)
 ## Filter dataset:
@@ -15,9 +15,9 @@ dat <- subset(dat, Sex == "M")
 dat <- subset(dat, Lat == "L")
 dat <- na.omit(dat[, 5:ncol(dat)])
 
-#########################
-### Run iForest algorithm
-#########################
+#############################
+### Run iForest algorithm ###
+#############################
 isofo <- isolationForest$new(nproc = 3,
                              sample_size = nrow(dat),
                              num_trees = 1000)

@@ -71,28 +71,28 @@ In biological anthropology, methods of outlier detection based on the mean and s
 However, this method suffers from a critical lack of robustness in other situations, recently illustrated on real data from various disciplinary fields by cite:leys2013_DetectingOutliersNot and cite:lightfoot2016_UseBiomineralOxygen. The data sets handled in archaeological sciences do not always meet the previous requirements, or it may at least be difficult to check them because of their small sample size. When considering archaeological data, the sample mean and---above all---standard deviation may be drastically distorded by the presence of the extreme outliers themselves, and thus do not provide a good measure of distance to detect outliers.
 
 #+begin_src R :results file graphics :file figures/failure2sd.png :exports results :width 600 :height 400 :tangle ./../R/Figure1_densityplot.R :session *R*
-##########################
-### Load required packages
-##########################
+##############################
+### Load required packages ###
+##############################
 library(anthrostat)
 library(bioanth)
 
-############################
-## Load the Goldman Data Set
-############################
+################################
+### oad the Goldman Data Set ###
+################################
 data(goldman, package = "bioanth")
 ## Select the population sample from Ipituaq (males only):
 dat <- subset(goldman, NOTE == 'Ipituaq - Point Hope, AK' & Sex == "M")
 
-##################################################
-### Compute left-right asymmetry in humeral length
-##################################################
+######################################################
+### Compute left-right asymmetry in humeral length ###
+######################################################
 asym <- na.omit(dat$LHML - dat$RHML)
 names(asym) <- 1:length(asym) # each individual is given a label
 
-#####################################
-### Density plot + outliers detection
-#####################################
+#########################################
+### Density plot + outliers detection ###
+#########################################
 ## Set graphical parameters:
 par(cex = 1.15, mar = c(4.5, 4.5, 1, 1))
 ## Perform outliers detection with anthrostat R package:
@@ -134,28 +134,28 @@ where $m$ is the sample median---a robust location estimate---, and $\hat{s}$ is
 Among several choices for robust location estimates $\hat{s}$ proposed in statistical literature, three will be compared below: the interquartile range (IQR), the median absolute deviation (MAD), and the $S_n$ estimator---full mathematical details for each of them are available in ref:appendix:rob-scale-estimate. Those three estimators provide three different robust variants of formula \eqref{eq:formula_loc_scale_univ}, and therefore three acceptable decision rules for univariate outliers detection. To compare the results obtained with these variants to the results returned by the usual "95-99.7 rule", all four criteria were applied to the 14 male individuals from the Ipituaq population sample. The results can be found in Table ref:tab:comparison_loc_scale_methods.
 
 #+begin_src R :results value table :exports results :colnames yes :rownames yes :tangle ./../R/Table1_compare_methods.R
-##########################
-### Load required packages
-##########################
+##############################
+### Load required packages ###
+##############################
 library(anthrostat)
 library(bioanth)
 
-#############################
-### Load the Goldman Data Set
-#############################
+#################################
+### Load the Goldman Data Set ###
+#################################
 data(goldman, package = "bioanth")
 ## Select the population sample from Ipituaq (males only):
 dat <- subset(goldman, NOTE == 'Ipituaq - Point Hope, AK' & Sex == "M")
 
-##################################################
-### Compute left-right asymmetry in humeral length
-##################################################
+######################################################
+### Compute left-right asymmetry in humeral length ###
+######################################################
 asym <- na.omit(dat$LHML - dat$RHML)
 names(asym) <- 1:length(asym) # each individual is given a label
 
-#####################################################################
-### Summarize and compare four different outlier detection strategies
-#####################################################################
+#########################################################################
+### Summarize and compare four different outlier detection strategies ###
+#########################################################################
 results <- norm_outliers(asym, coef = 2)
 summary(results)
 #+end_src
@@ -209,30 +209,30 @@ using the notations previously introduced in equation \eqref{eq:boxplot}, and a 
 An example of visually slightly skewed distribution can be given by considering the asymmetry in tibia mediolateral diameter within the population sample of Giza (Egypt, 4700--4200 BP, shortcode in the Goldman Data Set: "Pyramiden, Gizeh"). A kernel density estimation of those values is presented in Figure ref:fig:asymGiza.
 
 #+begin_src R :results file graphics :file figures/skewness.png :exports results :width 600 :height 400 :tangle ./../R/Figure2_Giza.R
-##########################
-### Load required packages
-##########################
+##############################
+### Load required packages ###
+##############################
 library(bioanth)
 library(univOutl)
 
-#############################
-### Load the Goldman Data Set
-#############################
+#################################
+### Load the Goldman Data Set ###
+#################################
 data(goldman)
 goldman <- as.data.frame(goldman) # tibble to data.frame
 ## Select the population sample of Giza:
 dat <- subset(goldman, NOTE == "Pyramiden, Gizeh")
 
-#####################################################
-### Compute asymmetry in tibia medio-lateral diameter
-#####################################################
+#########################################################
+### Compute asymmetry in tibia medio-lateral diameter ###
+#########################################################
 dat <- na.omit(dat[ , c("RTMLD", "LTMLD")])
 asym <- dat$RTMLD - dat$LTMLD
 names(asym) <- 1:length(asym)
 
-#####################################
-### Density plot + outliers detection
-#####################################
+#########################################
+### Density plot + outliers detection ###
+#########################################
 ## Kernel density estimation:
 kde <- density(asym, adjust = 1.4)
 ## Density plot:
@@ -287,15 +287,15 @@ A robust variant of Mahalanobis distance, also known as the MCD (minimum covaria
 A simple (and easy to visualize) example may be used to illustrate the differences between the classical and robust versions of the Mahalanobis distance. Figure ref:fig:plot3d_Sayala represents a three-dimensional scatterplot for the Sayala population sample, retrieved from the Goldman Data Set. The maximal lengths of three long bones, the left femur, humerus and tibia, are considered. Visually, three outliers---the individuals 7, 14 and 20---can be identified.
 
 #+begin_src R :results file graphics :file figures/plot3D-sayala.png :exports results :width 500 :height 450 :tangle ./../R/Figure3_plot3D_Sayala.R
-##########################
-### Load required packages
-##########################
+##############################
+### Load required packages ###
+##############################
 library(bioanth)
 library(scatterplot3d)
 
-#############################
-### Load the Goldman Data Set
-#############################
+#################################
+### Load the Goldman Data Set ###
+#################################
 data(goldman, package = "bioanth")
 ## Select the population sample "Sayala":
 sayala <- subset(goldman, NOTE == "Sayala")
@@ -304,9 +304,9 @@ sayala <- na.omit(sayala[ , c("LFML", "LTML", "LHML")])
 ## Relabel the individuals (more convenient in graphical representation):
 rownames(sayala) <- 1:nrow(sayala)
 
-###########
-### 3D plot
-###########
+###############
+### 3D plot ###
+###############
 s3d <- scatterplot3d(x = sayala[, 1], y = sayala[, 2], z = sayala[, 3],
                      highlight.3d = TRUE, box = FALSE, type = "h",
                      pch = 16, lty.hplot = 3,
@@ -324,15 +324,15 @@ text(s3d$xyz.convert(sayala), labels = rownames(sayala),
 The presence of those outliers causes an inflation of the generalized variance, i.e. a distorsion of the classical covariance matrix $\Sigma$. Consequently, the classical and robust Mahalanobis distances provide different sets of outliers here (Fig. ref:fig:stripcharts-maha). For an $\alpha$ level of 0.01, the classical version detects no outlier at all, whereas the robust version identifies the two individuals 14 and 20. For an $\alpha$ level of 0.05, the robust version also detects the individual 7, which is still far from the exclusion boundary for the classical version.
 
 #+begin_src R :results file graphics :file figures/maha-dd.png :exports results :width 400 :height 400 :tangle ./../R/Figure4_stripcharts_mahalanobis.R
-##########################
-### Load required packages
-##########################
+##############################
+### Load required packages ###
+##############################
 library(bioanth)
 library(robustbase)
 
-#############################
-### Load the Goldman Data Set
-#############################
+#################################
+### Load the Goldman Data Set ###
+#################################
 data(goldman, package = "bioanth")
 goldman <- as.data.frame(goldman) # tibble to data.frame
 ## Select the population sample "Sayala" :
@@ -342,9 +342,9 @@ sayala <- na.omit(sayala[ , c("LFML", "LTML", "LHML")])
 ## Relabel the individuals (more convenient in graphical representation):
 rownames(sayala) <- 1:nrow(sayala)
 
-#################################
-### Compute Mahalanobis distances
-#################################
+#####################################
+### Compute Mahalanobis distances ###
+#####################################
 ## Classic distance:
 maha <- mahalanobis(sayala, center = colMeans(sayala),
                     cov = cov(sayala))
@@ -354,9 +354,9 @@ mcd <- covMcd(sayala, alpha = 0.75,
 ## Add individual IDs:
 names(mcd) <- names(maha) <- rownames(sayala)
 
-#####################################################
-### Plot the classic and robust Mahalanobis distances
-#####################################################
+#########################################################
+### Plot the classic and robust Mahalanobis distances ###
+#########################################################
 set.seed(12345) # arbitrary seed to ensure reproducbility
 par(cex = 1.15, mar = c(2.5, 4, 1, 1))
 stripchart(x = list(maha, mcd), method = "jitter",
@@ -395,16 +395,16 @@ According to cite:liu2012_IsolationBasedAnomalyDetection, a quick rule-of-thumb 
 An isolation forest with 100 isolation trees is built on the same data as in the previous section (Sayala population sample with three variables: LTML, LHML, LFML). The anomaly scores, sorted by decreasing order, can be found in Figure ref:fig:anomaly_scores_sayala. The isolation forest algorithm provides evidence to consider the individuals 20, 7 and 14 as outliers, since their anomaly scores are the only ones to exhibit a substantial departure from the reference value of 0.50. This conclusion is consistent with the results obtained via the robust Mahalanobis distance (cf. Fig. ref:fig:stripcharts-maha). Isolation forests can thus provide a useful indication about possible multivariate outliers, by studying both the global distribution of anomaly scores (in search for "elbows" or gaps) and their absolute distance to 0.50.
 
 #+begin_src R :results file graphics :file figures/anomaly_plot.png :exports results :width 650 :height 400 :tangle ./../R/Figure5_anomaly_scores_sayala.R
-##########################
-### Load required packages
-##########################
+##############################
+### Load required packages ###
+##############################
 library(bioanth)
 library(FactoMineR)
 library(solitude)
 
-#############################
-### Load the Goldman Data Set
-#############################
+#################################
+### Load the Goldman Data Set ###
+#################################
 data(goldman)
 goldman <- as.data.frame(goldman) # tibble to data.frame
 ## Select the population sample "Sayala":
@@ -414,9 +414,9 @@ sayala <- na.omit(sayala[ , c("LFML", "LTML", "LHML")])
 ## Relabel the individuals:
 rownames(sayala) <- 1:nrow(sayala)
 
-#############################
-### Build an isolation forest
-#############################
+#################################
+### Build an isolation forest ###
+#################################
 isofo <- isolationForest$new(seed = 2020, nproc = 2,
                              sample_size = nrow(sayala),
                              num_trees = 100)
@@ -429,9 +429,9 @@ colnames(scores) <- c("ID", "anomaly_score")
 head(scores[order(scores$anomaly_score, decreasing = TRUE), ], 10)
 ordered_scores <- scores[order(scores$anomaly_score, decreasing = TRUE), ]
 
-###########################
-### Plot the anomaly scores
-###########################
+###############################
+### Plot the anomaly scores ###
+###############################
 par(cex = 1.21, mar = c(2, 4.5, 1, 1))
 plot(x = 1:nrow(ordered_scores), y = ordered_scores$anomaly_score,
      type = "b", pch = 15, col = "navy", ylim = c(0.3, 0.85),
@@ -461,15 +461,15 @@ This method can be illustrated on a subset of individuals extracted from the ref
 A PCA does not show any clear outliers on the first three principal axes. When considering each variable separately, only three individuals stand out according to the classical boxplot rule (extensive results available as Supporting Information online). The individual 96 exhibits a low value for the variable PUM, the individual 108 may be seen as an outlier for the variables for SPU and SS, and the individual 64 for the variables SS and VEAC. Unsurprisingly, those three individuals, being easy to "isolate" from the rest of the data, are the best candidates to be regarded as outliers according to the anomaly scores derived by isolation forests (Fig. ref:fig:anomaly_scores_dsp2).
 
 #+begin_src R :results graphics file :file figures/detect_dsp2.png :exports results :width 600 :height 400 :session *R* :tangle ./../R/Figure6_anomaly_scores_dsp2.R
-##########################
-### Load required packages
-##########################
+##############################
+### Load required packages ###
+##############################
 library(anthrostat)
 library(solitude)
 
-##################
-### Import dataset
-##################
+######################
+### Import dataset ###
+######################
 ## Load DSP2 data:
 data(data_dsp)
 ## Filter dataset:
@@ -478,9 +478,9 @@ dat <- subset(dat, Sex == "M")
 dat <- subset(dat, Lat == "L")
 dat <- na.omit(dat[, 5:ncol(dat)])
 
-#########################
-### Run iForest algorithm
-#########################
+#############################
+### Run iForest algorithm ###
+#############################
 isofo <- isolationForest$new(nproc = 3,
                              sample_size = nrow(dat),
                              num_trees = 1000)
@@ -515,15 +515,15 @@ abline(h = 0.5, lty = 2, col = "gray30")
 However, this not entirely the end of the story: some unusual combinations of variables can also be observed on other individuals. Figure ref:fig:ddc_dsp2 shows the deviating data cells flagged by the DDC algorithm. The results already known from univariate analysis can usually also be retrieved on this plot: for instance, the individual 108 has indeed be flagged by the algorithm for having high values of SPU and SS, which confirms the results from the well known boxplot rule. However, many other cells are flagged, even for individual that show no univariate anomaly and have low anomaly scores in Figure ref:fig:anomaly_scores_dsp2. For instance, individual 76 exhibits an unusual combination of high PUM and low VEAC measurements: none of those values stand out by themselves but both are atypical with respect to the values taken by the variables most correlated to them. The individual 112 exhibits exactly the reverse combination, with low PUM and high VEAC values. Similarly, the individual 100 exhibits a combination of a rather high SS and very low SCOX, which is also unusual within this population sample. Those peculiarities can indeed be confirmed when going back to the raw data, but the PCA was totally unhelpful in identifying those slight anomalies. This highlights a crucial fact: when the anomaly only concerns one given pair of variables among ten possible measurements, the impact may be sufficiently moderate so that multivariate methods cannot consider the individual as /globally/ suspect. The DDC algorithm allows to detect the individuals having a slightly different morphology, even if it is restricted to a very precise region of the bone under study.
 
 #+begin_src R :results graphics file :file figures/cellwise_dsp2.png :exports results :width 500 :height 600 :session *R* :tangle ./../R/Figure7_ddc_plot.R
-##########################
-### Load required packages
-##########################
+##############################
+### Load required packages ###
+##############################
 library(anthrostat)
 library(cellWise)
 
-##################
-### Import dataset
-##################
+######################
+### Import dataset ###
+######################
 ## Load DSP2 data:
 data(data_dsp)
 ## Filter dataset:
@@ -532,9 +532,9 @@ dat <- subset(dat, Sex == "M")
 dat <- subset(dat, Lat == "L")
 dat <- na.omit(dat[, 5:ncol(dat)])
 
-#####################
-### Run DDC algorithm
-#####################
+#########################
+### Run DDC algorithm ###
+#########################
 ddc <- DDC(dat, DDCpars = list(tolProb = 0.975))
 cellWise::cellMap(D = ddc$remX,
                   R = ddc$stdResid,
@@ -560,14 +560,14 @@ When considering the relationship between two continuous variables, three main t
 #############################
 library(bioanth)
 
-#############################
-### Load the Goldman Data Set
-#############################
+#################################
+### Load the Goldman Data Set ###
+#################################
 data(goldman, package = "bioanth")
 
-###########################################
-### Define an helper function for the plots
-###########################################
+###############################################
+### Define an helper function for the plots ###
+###############################################
 plot_out_GDS <- function(data, pop, x_var = "RHML", y_var = "RTML",
                          title = NULL, index_outl = NULL) {
     ## Select a sub-sample from 'data':
@@ -584,9 +584,9 @@ plot_out_GDS <- function(data, pop, x_var = "RHML", y_var = "RTML",
            lty = 3, col = "blue")
 }
 
-########
-### Plot
-########
+############
+### Plot ###
+############
 ## Set graphial parameters:
 par(mfrow = c(1, 3), cex = 0.9)
 ## Type 1: extreme residual value near the average of X
@@ -618,18 +618,26 @@ However, it should be noted that robust methods for correlation and regression d
 A robust version of the correlation coefficient automatically restricts the computation to the "most central" part of the data, using the same minimum covariance determinant algorithm as the robust Mahalanobis distance detailed in section [[Robust Mahalanobis distance]] (Fig. ref:fig:robust-corr). In particular, potential outliers can be lefted in on the plots, thus allowing to discuss some particular cases without introducing any bias in the computation.
 
 #+begin_src R :results file graphics :file figures/robust-correlation.png :exports results :width 400 :height 400 :tangle ./../R/Figure9_robust_corr.R
-### Load required packages:
+##############################
+### Load required packages ###
+##############################
 library(bioanth)
 library(mvoutlier)
 
-### Load the Goldman Data Set:
+#################################
+### Load the Goldman Data Set ###
+#################################
 data(goldman)
 
-### Select the population sample "El Hesa":
+##############################################
+### Select the population sample "El Hesa" ###
+##############################################
 hesa <- subset(goldman, NOTE == "Dynastic Egyptian, El Hesa")
 hesa <- na.omit(hesa[ , c("RTML", "RFML")])
 
-### Compute and plot robust correlation:
+###########################################
+### Compute and plot robust correlation ###
+###########################################
 corr.plot(x = hesa$RTML, y = hesa$RFML,
           alpha = 0.05, quan = 3/4,
           xlab = "RTML (mm)", ylab = "RFML(mm)",
@@ -644,18 +652,24 @@ corr.plot(x = hesa$RTML, y = hesa$RFML,
 Robust alternatives for linear regression are also implemented in various R packages. The function ~MASS::rlm()~ implements an algorithm that gives different weights to the individuals according to their distance to the regression line, and iteratively re-fits the model until convergence citep:venables2010_ModernAppliedStatistics. Another option is the quantile regression citep:koenker2005_QuantileRegressionRoger, implemented in the function ~quantreg::rq()~, that replaces the mean by the median wihtin the framework of least squares estimation. As shown on Figure ref:fig:robust-regression, those two methods are usually consistent with each other, and with an ordinary linear regression performed after excluding the potential outliers.
 
 #+begin_src R :results file graphics :file figures/quantile-regression.png :exports results :width 450 :height 450 :tangle ./../R/Figure10_robust_lm.R
-### Load required packages:
+##############################
+### Load required packages ###
+##############################
 library(bioanth)
 library(MASS)
 library(quantreg)
 
-### Load the Goldman Data Set:
+#################################
+### Load the Goldman Data Set ###
+#################################
 data(goldman)
 ### Select the population sample "El Hesa":
 hesa <- subset(goldman, NOTE == "Dynastic Egyptian, El Hesa")
 hesa <- na.omit(hesa[ , c("RTML", "RFML")])
 
-### Scatterplot:
+###################
+### Scatterplot ###
+###################
 par(cex = 1.12, mar = c(4, 4, 1, 1))
 plot(RFML ~ RTML, data = hesa, asp = 1,
      xlab = "RTML (mm)", ylab = "RFML (mm)")
@@ -686,25 +700,25 @@ Depending on the aim and context of the study, the two extreme points on the mid
 When one only searches for outliers in a two-dimensional distribution---outside of the context of linear regression or correlation---the bagplot citep:rousseeuw1999_BagplotBivariateBoxplot is the appropriate tool. The bagplot is a bivariate generalization of the boxplot. An inner polygon (/bag/) contains about 50% of the individuals which are the closest to the bivariate sample median; an exterior /fence/ allows to identify the outliers and is defined by inflating the bag by a factor 3; and an intermediate region (the /loop/) is the convex hull of the outermost individuals that are not outliers. Rarely used in archaeological sciences---cite:oconnell2012_DietbodyOffsetHuman and cite:emery2018_MappingOriginsImperial are two of the few recent instances---, the bagplot provides a simple and visual way to identify bivariate outliers by an /ad-hoc/ rule (Fig. ref:fig:bagplot).
 
 #+begin_src R :results file graphics :file figures/bagplot.png :exports results :width 600 :height 480 :tangle ./../R/Figure11_bagplot.R
-##########################
-### Load required packages
-##########################
+##############################
+### Load required packages ###
+##############################
 library(aplpack)
 library(bioanth)
 library(FactoMineR)
 
-#############################
-### Load the Goldman Data Set
-#############################
+#################################
+### Load the Goldman Data Set ###
+#################################
 data(goldman, package = "bioanth")
 ## Select a subsample of individuals (Delaware pop. sample):
 goldman <- as.data.frame(goldman[ , c("NOTE", "RTMLD", "RTML")])
 goldman <- na.omit(subset(goldman, NOTE == "Delaware"))
 rownames(goldman) <- 1:nrow(goldman) # relabel the rows
 
-##################
-### Draw a bagplot
-##################
+######################
+### Draw a bagplot ###
+######################
 par(mar = c(4.5, 4.5, 1, 1), cex = 1.15)
 bagplot(x = goldman$RTMLD, y = goldman$RTML,
         na.rm = TRUE, cex = 1.25,
@@ -720,7 +734,6 @@ autoLab(x = goldman$RTMLD, y = goldman$RTML,
 #+RESULTS:
 [[file:figures/bagplot.png]]
 * Discussion and conclusion
-
 As stated by [[citet:leys2019_HowClassifyDetect][::p. 5]], "/there are no universal rules to tell you when to consider a value as ‘too far’ from the others; researchers need to make this decision for themselves/". This statement is in line with cite:tukey1977_ExploratoryDataAnalysis work: outliers are data points flagged as somewhat unusual, and then constitute /candidates/ for being true---informative---anomalies. Detecting outliers should always lead to reflection, sometimes action, but the final interpretation and conclusion is up to the researcher.
 
 Therefore, any method of outlier detection comes with several arbitrary choices. The constant $k$ in equations \eqref{eq:formula_loc_scale_univ} to \eqref{eq:adjusted_boxplot} strongly impacts the severity of the decision rule by narrowing or widening the "credibility intervals"; a similar role is played by the $\alpha$ level in equations \eqref{eq:maha} and \eqref{eq:robust_maha} for Mahalanobis distances. By choosing lower or higher values for such parameters, either only the clearest extreme values or even slightly unusual values will be regarded as outliers. It is not possible to give a universal recommendation to set those parameters at a given value, and the researcher should be prepared to defend the strategy of outlier detection adopted in a study.

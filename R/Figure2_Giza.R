@@ -1,27 +1,27 @@
-##########################
-### Load required packages
-##########################
+##############################
+### Load required packages ###
+##############################
 library(bioanth)
 library(univOutl)
 
-#############################
-### Load the Goldman Data Set
-#############################
+#################################
+### Load the Goldman Data Set ###
+#################################
 data(goldman)
 goldman <- as.data.frame(goldman) # tibble to data.frame
 ## Select the population sample of Giza:
 dat <- subset(goldman, NOTE == "Pyramiden, Gizeh")
 
-#####################################################
-### Compute asymmetry in tibia medio-lateral diameter
-#####################################################
+#########################################################
+### Compute asymmetry in tibia medio-lateral diameter ###
+#########################################################
 dat <- na.omit(dat[ , c("RTMLD", "LTMLD")])
 asym <- dat$RTMLD - dat$LTMLD
 names(asym) <- 1:length(asym)
 
-#####################################
-### Density plot + outliers detection
-#####################################
+#########################################
+### Density plot + outliers detection ###
+#########################################
 ## Kernel density estimation:
 kde <- density(asym, adjust = 1.4)
 ## Density plot:

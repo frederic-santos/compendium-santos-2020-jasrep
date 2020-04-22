@@ -48,3 +48,13 @@ text(x = c(0.95, 1.05), y = sort(maha, decreasing = TRUE)[1:2],
 legend("topleft", lty = 2, col = c("red", "orange"),
        legend = c(expression(paste(alpha, " = ", 0.01)),
                   expression(paste(alpha, " = ", 0.05))))
+
+##########################
+### Note to the reader ###
+##########################
+## Everything is (re)coded manually here, to show the details of the
+## computations. But there are built-in R functions to draw equivalent
+## (or even richer) plots automatically.
+## An example:
+## mcd <- covMcd(sayala, alpha = 0.75, nsamp = "best")
+## plot(mcd, which = "dd")

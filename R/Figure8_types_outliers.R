@@ -42,7 +42,7 @@ plot_out_GDS(data = goldman, pop = "Germany, Hamann-Todd",
            x_var = "LFML", y_var = "RFML",
            title = "(2) Germany, Hamann-Todd",
            index_outl = c(15, 21))
-## Type 3: leverage point
+## Type 3: influential point
 plot_out_GDS(data = goldman, pop = "Dynastic Egyptian, El Hesa",
            x_var = "RTML", y_var = "RFML",
            title = "(3) Dynastic Egyptian, El Hesa",

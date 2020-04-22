@@ -609,7 +609,7 @@ plot_out_GDS(data = goldman, pop = "Germany, Hamann-Todd",
            x_var = "LFML", y_var = "RFML",
            title = "(2) Germany, Hamann-Todd",
            index_outl = c(15, 21))
-## Type 3: leverage point
+## Type 3: influential point
 plot_out_GDS(data = goldman, pop = "Dynastic Egyptian, El Hesa",
            x_var = "RTML", y_var = "RFML",
            title = "(3) Dynastic Egyptian, El Hesa",
@@ -621,7 +621,7 @@ plot_out_GDS(data = goldman, pop = "Dynastic Egyptian, El Hesa",
 #+RESULTS:
 [[file:figures/type_outliers_reg.png]]
 
-In a regression model, the influential individuals of the type seen in Figure ref:fig:type_outliers_reg (3) are the most problematic. Leverage individuals can be identified through their high value of Cook's distance, which is provided as a standard diagnostic in most statistical software. A reasonable rule-of-thumb---that should be avoided in the case of a very small sample size---is that influential points have a Cook's distance greater than 1 citep:cornillon2010_RegressionAvec.
+In a regression model, the influential individuals of the type seen in Figure ref:fig:type_outliers_reg (3) are the most problematic. Influential points can be identified through their high value of Cook's distance, which is provided as a standard diagnostic in most statistical software. A reasonable rule-of-thumb---that should be avoided in the case of a very small sample size---is that influential points have a Cook's distance greater than 1 citep:cornillon2010_RegressionAvec.
 
 However, it should be noted that robust methods for correlation and regression do exist citep:rousseeuw1987_RobustRegressionOutlier. Manually excluding outliers is not mandatory with those modern techniques, that have their own built-in way to handle outliers. 
 

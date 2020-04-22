@@ -553,7 +553,7 @@ cellWise::cellMap(D = ddc$remX,
                   showVals = NULL)
 #+end_src
 
-#+CAPTION: Deviating data cells flagged by the DDC algorithm on 22 male individuals extracted from the DSP2 reference sample. Unusually low values are colored in blue (if strong anomaly) or puple (if slight), and high values are colored in red or orange. A tolerance probability of 0.975 has been used. label:fig:ddc_dsp2
+#+CAPTION: Deviating data cells flagged by the DDC algorithm on 22 male individuals extracted from the DSP2 reference sample. Unusually low values are colored in blue (if strong anomaly) or purple (if slight), and high values are colored in red or orange. A tolerance probability of 0.975 has been used. label:fig:ddc_dsp2
 #+ATTR_LATEX: :width 0.5\textwidth
 #+RESULTS:
 [[file:figures/cellwise_dsp2.png]]

@@ -5,15 +5,12 @@
 ;; Set repository information:
 (package-initialize)
 (add-to-list 'package-archives
-	     '("melpa-stable" . "http://stable.melpa.org/packages/"))
-(add-to-list 'package-archives
 	     '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives
 	     '("org" . "https://orgmode.org/elpa/") t)
 (setq package-archive-priorities '(("gnu" . 5)
                                    ("melpa" . 10)
-                                   ("org" . 11)
-                                   ("melpa-stable" . 6)))
+                                   ("org" . 11)))
 (package-refresh-contents)
 
 ;; Install and activate use-package (if not already the case):

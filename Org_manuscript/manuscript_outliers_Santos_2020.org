@@ -621,11 +621,11 @@ plot_out_GDS(data = goldman, pop = "Dynastic Egyptian, El Hesa",
 #+RESULTS:
 [[file:figures/type_outliers_reg.png]]
 
-In a regression model, the influential individuals of the type seen in Figure ref:fig:type_outliers_reg (3) are the most problematic. Leverage individuals can be identified through their high value of Cook's distance, which is provided as a standard diagnostic in most statistical software. A reasonable rule-of-thumb---that should be avoided in the case of a very small sample size---is that leverage points have a Cook's distance greater than 1 citep:cornillon2010_RegressionAvec.
+In a regression model, the influential individuals of the type seen in Figure ref:fig:type_outliers_reg (3) are the most problematic. Leverage individuals can be identified through their high value of Cook's distance, which is provided as a standard diagnostic in most statistical software. A reasonable rule-of-thumb---that should be avoided in the case of a very small sample size---is that influential points have a Cook's distance greater than 1 citep:cornillon2010_RegressionAvec.
 
 However, it should be noted that robust methods for correlation and regression do exist citep:rousseeuw1987_RobustRegressionOutlier. Manually excluding outliers is not mandatory with those modern techniques, that have their own built-in way to handle outliers. 
 
-A robust version of the correlation coefficient automatically restricts the computation to the "most central" part of the data, using the same minimum covariance determinant algorithm as the robust Mahalanobis distance detailed in section [[Robust Mahalanobis distance]] (Fig. ref:fig:robust-corr). In particular, potential outliers can be lefted in on the plots, thus allowing to discuss some particular cases without introducing any bias in the computation.
+A robust version of the correlation coefficient automatically restricts the computation to the "most central" part of the data, using the same minimum covariance determinant algorithm as the robust Mahalanobis distance detailed in section [[Robust Mahalanobis distance]] (Fig. ref:fig:robust-corr). In particular, potential outliers can be kept on the plots, thus allowing to discuss some particular cases without introducing any bias in the computation.
 
 #+begin_src R :results file graphics :file figures/robust-correlation.png :exports results :width 400 :height 400 :tangle ./../R/Figure9_robust_corr.R
 ##############################

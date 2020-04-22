@@ -3,7 +3,7 @@ An Org source file to reproduce the whole manuscript
 
 In search for a perfect reproducibility, this manuscript have been entirely written in [Org mode for Emacs](https://orgmode.org/). A [Docker image](https://hub.docker.com/repository/docker/fredsantos/compendium_santos2020_jasrep) is also available on DockerHub to provide the full computational environment that allowed this study, and a [Dockerfile](./Dockerfile) is also provided in this repository. Using this Docker image, you should be able to rebuild the whole manuscript in its exact form at the moment of the submission to the *Journal of Archaeological Science: Reports*. All R scripts will be re-evaluated during this process, and the R code chunks can also been evaluated manually in the Org source file.
 
-The following instructions have been tested for Linux and Windows. Advanced Mac OS users should also be able to adapt them to their operating system.
+The following instructions have been tested for Linux (Manjaro) and Windows 10. Advanced Mac OS users should also be able to adapt them to their operating system.
 
 Since Windows instructions are more difficult to follow, a video tutorial is available on Vimeo:
 [![Video tutorial](.gitlab/tuto_vignette.png)](https://player.vimeo.com/video/386465412 "Video tutorial")
@@ -33,7 +33,7 @@ To reproduce the manuscript (i.e., run all the R code and generate all tables an
 #### 2.1.1. Linux users
 Execute the following command line into the shell:
 ```shell
-docker run -it --rm -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix fredsantos/compendium_santos2020_jasrep:R1
+docker run -it --rm -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix fredsantos/compendium_santos2020_jasrep:R2
 ```
 Emacs should open! Go to section 2.1.3. for more instructions.
 

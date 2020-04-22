@@ -19,7 +19,7 @@ For non-Emacs users, or simply for a lighter re-use of the R source code produce
    - Then install some other packages available on GitLab or GitHub by running the following R code:
    ```r
    remotes::install_github('geanes/bioanth', ref = 'b179b396')
-   remotes::install_git('https://gitlab.com/f.santos/anthrostat.git', ref = 'v0.1.4')
+   remotes::install_git('https://gitlab.com/f.santos/anthrostat.git', ref = 'v0.1.5')
    ```
 
 ## Note

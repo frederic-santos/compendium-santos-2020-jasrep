@@ -51,7 +51,7 @@ set-variable -name DISPLAY -value <yourip>:0.0
 ```
 4. You can finally run Emacs by executing the following command into Windows Powershell:
 ```shell
-docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix fredsantos/compendium_santos2020_jasrep:R1
+docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix fredsantos/compendium_santos2020_jasrep:R2
 ```
 Emacs should open! Go to section 2.1.3. for more instructions.
 

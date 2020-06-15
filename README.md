@@ -15,4 +15,4 @@ For non Emacs users, a set of separate R source files also allows the replicatio
 
 The encoding system is UTF-8 for all source files.
 
-Finally, the first draft of the manuscript (before any process of peer-review) can be accessed in its pdf version in the [Preprint](./Priprint/) directory.
+Finally, the first draft of the manuscript (before any process of peer-review) can be accessed in its pdf version in the [Preprint](./Preprint/) directory.

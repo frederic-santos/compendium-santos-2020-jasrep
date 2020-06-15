@@ -5,7 +5,7 @@ Modern methods for old data: An overview of some robust methods for outliers det
 
 **Author**: Frédéric Santos
 
-Submitted to *Journal of Archaeological Science: Reports*, 2020.
+Accepted in *Journal of Archaeological Science: Reports*, 2020.
 
 ## Supporting Information
 

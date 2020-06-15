@@ -9,7 +9,7 @@ Accepted in *Journal of Archaeological Science: Reports*, 2020.
 
 ## Supporting Information
 
-This repository contains the org source file of the original manuscript, thus making it a fully reproducible article using [Org mode for Emacs](https://orgmode.org/). Detailed instructions are available in the corresponding directory, [Org_manuscript](./Org_manuscript/)`.
+This repository contains the org source file of the original manuscript, thus making it a fully reproducible article using [Org mode for Emacs](https://orgmode.org/). Detailed instructions are available in the corresponding directory, [Org_manuscript](./Org_manuscript/).
 
 For non Emacs users, a set of separate R source files also allows the replication of all the results presented in the article, and may be a starting point to build your own R scripts for outliers detection. All source files are independent (running all of them is not mandatory); and each Table or Figure is associated to an R source file. They can be found in the [R](./R/) directory.
 
